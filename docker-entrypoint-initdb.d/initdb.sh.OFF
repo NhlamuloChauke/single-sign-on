@@ -1,0 +1,19 @@
+#!/bin/bash
+#
+# Script to create and import additonal databases named *.dump
+#
+set -ux
+
+[ -d /docker-entrypoint-initdb.d ] || exit 0
+
+cd /docker-entrypoint-initdb.d
+
+for f in *.dump ; do
+    _db="${f%.dump}"
+    cat <<EOT | mysql -u root -p"$MYSQL_ROOT_PASSWORD"
+CREATE DATABASE $_db;
+GRANT ALL PRIVILEGES ON $_db.* TO $MYSQL_USER@'%' IDENTIFIED BY '$MYSQL_PASSWORD';
+FLUSH PRIVILEGES;
+EOT
+    mysql -u $MYSQL_USER -p"$MYSQL_PASSWORD" $_db < $f
+done

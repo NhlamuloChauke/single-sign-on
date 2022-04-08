@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="common/header ::common-header(title='SST - Account Registered')" />
+
+<body class="my-login-page">
+	<div th:replace="common/header :: navbar">
+	</div>
+	<section class="h-100">
+		<div class="container h-100">
+			<div class="row justify-content-md-center h-100">
+				<div class="card-wrapper">
+					<br />
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="text-center">
+									<div class="alert alert-success" role="alert">
+										You have successfully registered to Subscription Tool account. Please note that
+										your account is not approved yet.
+										You will receive an email from us once your account is approved and activated.
+										Feel free to contact us here: <a
+											href="mailto:dirisa@csir.co.za">dirisa@csir.co.za</a>. Thank You.
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<footer>
+						<div th:replace="common/footer :: footer" />
+					</footer>
+				</div>
+			</div>
+		</div>
+	</section>
+	<div th:replace="common/header :: body-bottom-scripts"></div>
+</body>
+
+</html>

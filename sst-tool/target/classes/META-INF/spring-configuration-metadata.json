@@ -1,0 +1,77 @@
+{
+  "groups": [
+    {
+      "name": "app",
+      "type": "ac.za.dirisa.sst.properties.ApplicationProperties",
+      "sourceType": "ac.za.dirisa.sst.properties.ApplicationProperties"
+    },
+    {
+      "name": "spring.datasource",
+      "type": "ac.za.dirisa.sst.properties.DataSourceProperties",
+      "sourceType": "ac.za.dirisa.sst.properties.DataSourceProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "app.email-from",
+      "type": "java.lang.String",
+      "sourceType": "ac.za.dirisa.sst.properties.ApplicationProperties"
+    },
+    {
+      "name": "app.email-to",
+      "type": "java.lang.String",
+      "sourceType": "ac.za.dirisa.sst.properties.ApplicationProperties"
+    },
+    {
+      "name": "app.reset-subject-response",
+      "type": "java.lang.String",
+      "sourceType": "ac.za.dirisa.sst.properties.ApplicationProperties"
+    },
+    {
+      "name": "app.respond-link-password",
+      "type": "java.lang.String",
+      "sourceType": "ac.za.dirisa.sst.properties.ApplicationProperties"
+    },
+    {
+      "name": "app.response-link",
+      "type": "java.lang.String",
+      "sourceType": "ac.za.dirisa.sst.properties.ApplicationProperties"
+    },
+    {
+      "name": "app.send-link",
+      "type": "java.lang.String",
+      "sourceType": "ac.za.dirisa.sst.properties.ApplicationProperties"
+    },
+    {
+      "name": "app.sql-driver",
+      "type": "java.lang.String",
+      "sourceType": "ac.za.dirisa.sst.properties.ApplicationProperties"
+    },
+    {
+      "name": "app.subject-response",
+      "type": "java.lang.String",
+      "sourceType": "ac.za.dirisa.sst.properties.ApplicationProperties"
+    },
+    {
+      "name": "app.subject-send",
+      "type": "java.lang.String",
+      "sourceType": "ac.za.dirisa.sst.properties.ApplicationProperties"
+    },
+    {
+      "name": "spring.datasource.password",
+      "type": "java.lang.String",
+      "sourceType": "ac.za.dirisa.sst.properties.DataSourceProperties"
+    },
+    {
+      "name": "spring.datasource.u-r-l",
+      "type": "java.lang.String",
+      "sourceType": "ac.za.dirisa.sst.properties.DataSourceProperties"
+    },
+    {
+      "name": "spring.datasource.username",
+      "type": "java.lang.String",
+      "sourceType": "ac.za.dirisa.sst.properties.DataSourceProperties"
+    }
+  ],
+  "hints": []
+}

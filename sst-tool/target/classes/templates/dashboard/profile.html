@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="common/sidebarHeader ::common-sidebarHeader(title='SST - Profile')" />
+
+<body>
+    <!--Header-->
+	<div th:replace="common/sidebarHeader :: sidebarHeader">
+	</div>
+	   
+    <main id="main" class="main">
+        <div class="pagetitle">
+            <span style="font-weight: bold;">Profile</span>
+            <nav>
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a th:href="@{/subscribe/portal}">Home</a></li>
+              <li class="breadcrumb-item">User</li>
+              <li class="breadcrumb-item active">Profile</li>
+            </ol>
+          </nav>
+        </div><!-- End Page Title -->
+        <section class="section profile">
+          <div class="row">
+            <div class="col-xl-8">
+              <div class="card">
+                <div class="card-body pt-3">
+                  <div th:if="${message != null}">
+                    <div class="alert alert-success">[[${message}]]</div>
+                  </div>
+                  <!-- Bordered Tabs -->
+                  <ul class="nav nav-tabs nav-tabs-bordered">
+
+                    <li class="nav-item">
+                      <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-settings">
+                        <i class="bi bi-gear"></i>
+                        Settings
+                      </button>
+                    </li>
+    
+                    <li class="nav-item">
+                      <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">
+                        <i class="bi bi-shield-lock"></i>
+                        Change Password</button>
+                    </li>
+    
+                  </ul>
+                  <div class="tab-content pt-2">
+                    <div class="tab-pane fade show active pt-3" id="profile-settings">
+                      <!-- Settings Form -->
+                      <form>
+    
+                        <div class="row mb-3">
+                            <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Reason For Deleting</label>
+                            <div class="col-md-8 col-lg-9">
+                              <input name="password" type="text" class="form-control" id="currentPassword" 
+                              placeholder="Reason for deleting account ?" required>
+                            </div>
+                        </div>
+                        <div class="card-footer text-center py-1">
+                        <div class="text-center">
+                          <button type="submit" class="btn button btn-sm">
+                              Request Account Deletion 
+                            <i class="bi bi-arrow-right-short"></i>
+                          </button>  
+                        </div>
+                        </div>
+                      </form><!-- End settings Form -->
+    
+                    </div>
+    
+                    <div class="tab-pane fade pt-3" id="profile-change-password">
+                      <!-- Change Password Form -->
+                      <form method="POST" th:action="@{/subscribe/updateUserPassword}" th:object="${user}">
+                        <div class="row mb-3">
+                          <label for="password" class="col-md-4 col-lg-3 col-form-label">New Password</label>
+                          <div class="col-md-8 col-lg-9">
+                            <input name="password" type="password" class="form-control" id="password" 
+                                   placeholder="Password" th:field="*{password}" required>
+                          </div>
+                        </div>
+                        <div class="card-footer text-center py-1">
+                         <div class="text-center">
+                           <button type="submit" class="btn btn-sm button">
+                             Change Password
+                             <i class="bi bi-arrow-right-short"></i>
+                           </button>
+                         </div>
+                        </div>
+                      </form><!-- End Change Password Form -->
+    
+                    </div>
+    
+                  </div><!-- End Bordered Tabs -->
+    
+                </div>
+              </div>
+    
+            </div>
+          </div>
+        </section>
+    
+      </main><!-- End #main -->
+    
+  
+  <!--Footer-->
+  <footer>
+    <div th:replace="common/indexFooter :: footer" />
+   </footer>
+	<div th:replace="common/sidebarHeader :: bottom-scripts"></div>
+  <style>
+    .button{
+      background-color: rgba(104, 85, 224, 1);      
+      cursor: pointer;
+      color: white;
+      border: 0;
+      border-radius: 4px;
+      font-weight: 600;
+      margin: 0 10px;
+      width: 200px;
+      padding: 10px 0;
+      box-shadow: 0 0 20px rgba(104, 85, 224, 0.2);
+      transition: 0.4s;
+    }
+    .button {
+      color: rgb(104, 85, 224);
+      background-color: rgba(255, 255, 255, 1);
+      border: 1px solid rgba(104, 85, 224, 1);
+    }
+    .button:hover {
+      color: white;
+      box-shadow: 0 0 20px rgba(104, 85, 224, 0.6);
+      background-color: rgba(104, 85, 224, 1);
+    }
+  </style>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+version: '2.2'
+services:
+   nginx:
+    container_name: some-nginx
+    image: nginx:1.13
+    restart: always
+    ports:
+     - 80:80
+     - 443:443
+    networks:
+     - app_private_net
+    volumes:
+     - ./nginx/conf.d:/etc/nginx/conf.d
+    depends_on:
+     - service1
+   
+   sst-tool-db:
+    container_name: sst-tool-db
+    image: cheewai/docker-mysql:5.7
+    env_file: .env
+    networks:
+     - app_private_net
+    volumes:
+     - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+   
+   service1:
+    image: service1
+    container_name: service1
+    env_file: .env
+    build:
+      context: ./sst-tool
+    ports:
+      - 8084:8084
+    networks:
+      - app_private_net
+    depends_on:
+      - sst-tool-db
+
+networks:
+  # docker network create app_private_net --attachable
+  app_private_net:
+    external: true

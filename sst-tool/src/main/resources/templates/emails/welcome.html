@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title th:remove="all">Registration confirmation</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <style type="text/css">
+    body {
+      font-family: calibri, 'DejaVu Sans', Arial, Helvetica, sans-serif;
+    }
+    a.link {
+      border: solid 1px #000;
+      background-color: #000;
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      display: block;
+      width: 360px;
+      text-align: center;
+      padding: 10px 0;
+    }
+  </style>
+</head>
+<body>
+<div>Dear Admin,</div>
+<p>
+  Confirm Subscription Tool user account with the following details:
+  <br/><br/>
+  First Name : <a th:text="${firstName}"></a><br/>
+  Last Name : <a th:text="${lastName}"></a><br/>
+  Email address : <a th:text="${emailId}"></a><br/>
+  Institution/Organization : <a th:text="${institution}"></a><br/>
+  Reason for applying : <b th:text="${description}"></b><br/>
+  <br/>
+  To confirm the validity of the user email address, please click on the link below
+</p>
+<p style="text-align: left;">
+  <a class="link" href="#" th:href="${url}">Confirm User Account</a>
+</p>
+<br>
+<p>
+ <img src="../static/images/dirisa.svg" data-th-src="|cid:springLogo|" height="80" />
+</p>
+<p>
+  Regards, <br />
+  &emsp; <em>DIRISA Team</em>
+</p>
+</body>

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+	<div th:fragment="footer">
+		<div class="footer" style="margin: 40px 0;
+	                               color: #888;
+	                               text-align: center;">
+			Copyright &copy; <b th:text="${#dates.year(#dates.createNow())}"></b>&mdash; NICIS DIRISA
+		</div>
+	</div>
+</body>
+</html>

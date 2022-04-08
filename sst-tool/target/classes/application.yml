@@ -1,0 +1,54 @@
+server:
+  port: 8084
+  error:
+    include-message: always
+    include-binding-errors: always
+
+## Hibernate Properties
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/subscribe?useSSL=false
+    username: root
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        use-new-id-generator-mappings: false
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        format_sql: true
+    show-sql: true
+  mail:
+    host: smtp.gmail.com
+    # port: 25 # Docker MailDev SMTP Server Running.
+    port: 587 # Npm MailDev SMTP Server Running.
+    username: supportservice@dirisa.ac.za
+    password: VNJ3m&MY@exp03t
+    properties:
+      mail:
+        smtp:
+          ssl:
+            trust: "*"
+          auth: true
+          starttls:
+            enable: true
+          connectiontimeout: 5000
+          timeout: 3000
+          writetimeout: 5000
+## Recapture Properties          
+google:
+  recaptcha:
+    secret: 6Le555sdAAAAAPd2LnVju4tPXXFbFvXQwMMd5XVS
+    
+## Application Properties
+app:
+  emailFrom: supportservice@dirisa.ac.za
+  subjectSend: Confirm Subscription Tool User Account
+  subjectResponse: Subscription Tool Account Approved
+  respondLinkPassword: /subscribe/resetPassword?token=
+  responseLink: http://localhost:8084/subscribe/login
+  emailTo: dirisa@csir.co.za
+  sendLink: http://localhost:8084/subscribe/confirm?token=
+  resetSubjectResponse: Reset Subscription Tool Password
+  SQLdriver: com.mysql.cj.jdbc.Driver

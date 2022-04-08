@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="common/header ::common-header(title='SST - Sign In')" />
+
+<body class="my-login-page">
+	<div th:replace="common/header :: navbar">
+	</div>
+	<section class="h-100">
+		<div class="container h-100">
+			<div class="row justify-content-md-center h-100">
+				<div class="card-wrapper">
+					<div class="brand">
+						<img th:src="@{/images/fav.svg}" alt="logo" style="height: 55px;   
+						                                                   padding: 10px;
+						                                                   top: 20%;
+						                                                   margin: auto;
+						                                                   position: absolute;
+						                                                   ">
+					</div>
+					<div class="card fat">
+						<div class="card-body">
+							<h4 class="card-title" style="color: #012970;">Login</h4>
+							<form method="POST" th:action="@{/subscribe/login}" class="my-login-validation"
+								novalidate="">
+								<!-- error message -->
+								<div th:if="${param.error}">
+									<div class="alert alert-danger">Invalid username or
+										password.</div>
+								</div>
+
+								<!-- logout message -->
+								<div th:if="${param.logout}">
+									<div class="alert alert-info">You have been logged out.</div>
+								</div>
+
+								<div class="form-group">
+									<label for="email">E-Mail Address</label>
+									<input id="email" type="email" class="form-control" name="email" value="" required
+										autofocus>
+									<div class="invalid-feedback">
+										Email is invalid
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="password">Password
+										<a th:href="@{/subscribe/forgotPassword}" class="float-right">
+											Forgot Password?
+										</a>
+									</label>
+									<input id="password" type="password" class="form-control" name="password" required
+										data-eye>
+									<div class="invalid-feedback">
+										Password is required
+									</div>
+								</div>
+
+								<div class="form-group">
+									<div class="custom-checkbox custom-control">
+										<input type="checkbox" name="remember" id="remember"
+											class="custom-control-input">
+										<label for="remember" class="custom-control-label">Remember Me</label>
+									</div>
+								</div>
+
+								<div class="form-group m-0">
+									<button type="submit" class="btn btn-primary btn-block">
+										Login
+									</button>
+								</div>
+								<div class="mt-4 text-center">
+									Don't have an account? <a th:href="@{/subscribe/signup}">Create One</a>
+								</div>
+								</br>
+								<div class="safire">
+									<p><b style="color: #012970;">Login with</b > <a href="#">&nbsp;<img 
+									              class="logo" style="width:100px;"
+												  th:src="@{/images/safire.svg}">
+												  </a></p>
+								</div>
+								
+							</form>
+						</div>
+					</div>
+					<footer>
+						<div th:replace="common/footer :: footer" />
+					</footer>
+				</div>
+			</div>
+		</div>
+	</section>
+	<div th:replace="common/header :: body-bottom-scripts"></div>
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="common/sidebarHeader ::common-sidebarHeader(title='SST - Dashboard')" />
+
+<body>
+    <!--Header-->
+	<div th:replace="common/sidebarHeader :: sidebarHeader">
+	</div>
+	   
+  <main id="main" class="main">
+    <div class="pagetitle">
+      <span style="font-weight: bold;">DIRISA Applications Portal</span>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a th:href="@{/subscribe/portal}">Home</a></li>
+          <li class="breadcrumb-item active">Dashboard</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section dashboard">
+      <div th:fragment="service">
+       <div class="row">
+        <!-- Left side columns -->
+         <div class="col-lg-8" >
+          <div class="row">
+            <!--Card -->
+            <div class=" col-md-5" th:block th:each="service : ${services}">
+              <div class="card info-card sales-card">
+                <div class="card-body">
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i th:class="${service.icon}"></i>
+                    </div>
+                    <div class="ps-3">
+                      <h5 class="card-title"><span th:text="${service.name}"></span></h5>
+                    </div>
+                  </div>
+                  <div class="col-md-12 text-center">
+                    <p>
+                      <!-- Trigger Buttons HTML -->
+                      <a th:href= "${'#' + service.abbreviation}" data-bs-toggle="collapse" data-parent="#accordion" aria-expanded="false">
+                        <i class="bi bi-box-arrow-down" style="font-size: 1.5em"></i>
+                      </a>
+                    </p>
+                    <!-- Collapsible Element HTML -->
+                    <div class="collapse  hide" th:id="${service.abbreviation}">
+                          <span class="card-text text-muted small pt-2" th:text="${service.description}">
+                          </span>
+                    </div>
+                </div>
+                  <div class="card-footer text-center py-1">
+                    <div class="col-md-12 text-center">
+                      <a th:href="@{${service.URL}}" target="_blank" class="btn btn-sm button">
+                         View Service
+                         <i class="bi bi-arrow-right-short"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                </div>
+              </div>
+            </div><!-- End Card -->
+          </div>
+        </div><!-- End Left side columns -->
+      </div>
+    </section>
+  </main><!-- End #main -->
+  
+  <!--Footer-->
+  <footer>
+    <div th:replace="common/indexFooter :: footer" />
+   </footer>
+	<div th:replace="common/sidebarHeader :: bottom-scripts"></div>
+
+  <style>
+    .button{
+      background-color: rgba(104, 85, 224, 1);      
+      cursor: pointer;
+      color: white;
+      border: 0;
+      border-radius: 4px;
+      font-weight: 600;
+      margin: 0 10px;
+      width: 200px;
+      padding: 10px 0;
+      box-shadow: 0 0 20px rgba(104, 85, 224, 0.2);
+      transition: 0.4s;
+    }
+  </style>
+</body>
+
+</html>  

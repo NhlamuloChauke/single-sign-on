@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="common/sidebarAdminHeader ::common-sidebarAdminHeader(title='SST - AdminDashboard')" />
+
+<body>
+    <!--Header-->
+	<div th:replace="common/sidebarAdminHeader :: sidebarAdminHeader">
+	</div>
+ <main id="main" class="main">
+
+    <div class="pagetitle">
+      <span style="font-weight: bold;">DIRISA Admin Portal</span>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a th:href="@{/subscribe/adminPortal}">Home</a></li>
+          <li class="breadcrumb-item active">Dashboard</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+      <div class="row">
+        <div class="col-lg-8">
+
+          <div class="card">
+            <div class="card-body">
+              <!-- Default Table -->
+              <table class="table table-striped table-responsive-md">
+                <thead>
+                  <tr>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Institution</th>
+                    <th scope="col">Action</th>
+                  </tr >
+                </thead>
+                <tbody>
+                  <tr th:each="user : ${users}">
+                    <td th:text="${user.firstName}"></td >
+                    <td th:text="${user.lastName}"></td >
+                    <td th:text="${user.email}"></td >
+                    <td th:each="institution: ${user.institution}"
+                        th:text="${institution.name}"></td >
+                     <td> 
+                        <a href="#" >
+                          <i class="bi bi-trash"></i>
+                        </a> 
+                    </td>
+                  </tr >
+                </tbody>
+              </table>
+              <!-- End Default Table Example -->
+            </div>
+          </div>         
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+  <!--Footer-->
+  <footer>
+    <div th:replace="common/indexFooter :: footer" />
+   </footer>
+	<div th:replace="common/sidebarAdminHeader :: bottom-scripts"></div>
+</body>
+
+</html>  
